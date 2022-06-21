@@ -9,7 +9,16 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+<link href="css/style.css?t=3" rel="stylesheet">
+
+
+
+
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -39,5 +48,31 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.bundle.js"></script> 
+<script type="text/javascript">
+
+$('.carousel').carousel({
+  interval: 3500, // in milliseconds
+  pause: 'none' // set to 'true' to pause slider on mouse hover
+})
+
+</script>
+<script type="text/javascript">
+
+$( "a.submenu" ).on("click",function() {
+$( ".menuBar" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+});
+/*$( "ul li.dropdown a" ).on("click",function() {
+$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
+// Animation complete.
+});
+$('ul li.dropdown').toggleClass('current');
+});*/
+</script>
   </body>
 </html>

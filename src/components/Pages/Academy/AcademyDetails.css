@@ -1,0 +1,28 @@
+.banner-img{
+    width: 100% !important;
+    max-height: 300px !important;
+}
+.logo{
+    width: 100px !important;
+    height: auto !important;
+    border: 5px solid skyblue;
+    border-radius: 5px;
+}
+.details{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid skyblue;
+    margin: 10px;
+}
+
+.photos img{
+    display: grid;
+    border: 5px solid skyblue;
+    margin-top: 10px;
+    max-width: 500px;
+    height: auto;
+}
+.academyname{
+    color: white;
+    text-shadow: 2px 2px skyblue;
+}

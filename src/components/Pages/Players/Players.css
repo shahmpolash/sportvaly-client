@@ -1,0 +1,16 @@
+.players{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.players-bg{
+  background-color: red;
+  background-image: linear-gradient(to right,rgba(255,0,0,1), rgba(190, 100, 100, 0));
+}
+
+@media only screen and (max-width: 600px) {
+    .players {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
