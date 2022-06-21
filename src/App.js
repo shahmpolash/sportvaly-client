@@ -14,6 +14,7 @@ import PlayerDetails from './components/Pages/Players/PlayerDetails/PlayerDetail
 import PracticeTime from './components/Pages/PracticeSchedule/PracticeTime';
 import UpdateProfile from './components/Pages/UpdateProfile/UpdateProfile';
 import Dashboard from './components/Pages/Profile/Dashboard';
+import Footer from './Shared/Footer';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         }></Route>
         <Route path='/add-record' element ={<RequireAuth><AddRecord></AddRecord></RequireAuth>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
