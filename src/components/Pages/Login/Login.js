@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     if(user){
-        navigate('/profile')
+        navigate('/dashboard')
     }
 
     const goRegister = event =>{

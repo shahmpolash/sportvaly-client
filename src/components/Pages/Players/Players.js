@@ -15,7 +15,7 @@ const Players = () => {
     return (
         <div className='player-bg container '>
             <div className='bg-primary mt-5'>
-                <h2 class="page__title text-white p-5">Players</h2>
+                <h3 class="page__title text-white p-3">Players</h3>
             </div>
             <div className='players col-md-3 col-sm-6'>
 

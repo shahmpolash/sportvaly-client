@@ -8,9 +8,7 @@ const Footer = () => {
                     <div class="row">
                         <div class="col-md-6">
                             <h3>About Us</h3>
-                            <p>We strive to deliver a level of service that exceeds the expectations of our customers. <br />
-                                <br />
-                                If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available seven days a week to assist you.</p>
+                            <p className='text-white'>SportValy is the number #1 platform where you will get Bangladeshi cricket related all kinds of information, including cricket training, cricket career guidelines, cricket academy information and more.</p>
                         </div>
                         <div class="col-md-3">
                             <h3>Important Links</h3>
