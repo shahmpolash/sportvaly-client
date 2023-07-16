@@ -1,105 +1,121 @@
-import React, { useEffect, useState } from 'react';
-import { Accordion, Button, Card, Table } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import './PlayerDetails.css';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "./PlayerDetails.css";
 
 const PlayerDetails = () => {
+  const { id } = useParams();
+  const [player, setPlayer] = useState([]);
+  const [matches, setMatches] = useState([]);
 
-    const { id } = useParams();
-    const [player, setPlayer] = useState({});
+  useEffect(() => {
+    const url = `http://localhost:5000/player/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setPlayer(data));
+  }, [id]);
 
-    useEffect(() => {
-        const url = `http://localhost:5000/player/${id}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setPlayer(data));
-    }, []);
-    return (
-        <div className='container'>
-            <Card className="text-center player-details">
-                <Card.Header className='d-flex justify-content-center'> <img src={player.profile_picture} alt="" /> </Card.Header>
-                <Card.Body>
-                    <Card.Title>{player.name}</Card.Title>
-                    <Button variant="primary">{player.role}</Button>
-                </Card.Body>
-            </Card>
-            <div>
-                <h2 className='text-center'>Playr History</h2>
-                <Accordion defaultActiveKey="0">
-                    <Accordion.Item eventKey="0">
-                        <Accordion.Header>As a Batsman</Accordion.Header>
-                        <Accordion.Body>
-                            <Table striped bordered hover variant="dark">
-                               
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Total Matches</td>
-                                        <td>{player.total_matchs}</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Total Runs</td>
-                                        <td>{player.total_runs}</td>
-                                        
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Height Runs</td>
-                                        <td>{player.highest_runs}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Total 50s</td>
-                                        <td>{player.fifty}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Total 100s</td>
-                                        <td>{player.hundred}</td>
-                                    </tr>
-                                </tbody>
-                            </Table>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="1">
-                        <Accordion.Header>As a Bowler</Accordion.Header>
-                        <Accordion.Body>
-                        <Table striped bordered hover variant="dark">
-                               
-                               <tbody>
-                                   <tr>
-                                       <td>1</td>
-                                       <td>Total Matches</td>
-                                       <td>{player.total_matchs}</td>
-                                       
-                                   </tr>
-                                   <tr>
-                                       <td>2</td>
-                                       <td>Total Wickets</td>
-                                       <td>{player.total_wickets}</td>
-                                       
-                                   </tr>
-                                   <tr>
-                                       <td>3</td>
-                                       <td>Height Wickets</td>
-                                       <td>{player.height_wickets}</td>
-                                   </tr>
-                                   <tr>
-                                       <td>4</td>
-                                       <td>Total 5s</td>
-                                       <td>{player.five}</td>
-                                   </tr>
-                                   
-                               </tbody>
-                           </Table>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
+  useEffect(() => {
+    const url = `http://localhost:5000/matches`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMatches(data));
+  }, []);
+
+  return (
+    <div>
+      <div className="hero-section section-gap-top-25">
+        <div className="container">
+          {/* Start Hero Area */}
+          <div className="hero-area hero-area--style-1 hero-slider-active">
+            {/* Slider main container */}
+            <div className="swiper">
+              {/* Additional required wrapper */}
+              <div className="swiper-wrapper">
+                {/* Slides */}
+                <div className="swiper-slide">
+                  <div className="hero-singel-slide">
+                    <div className="hero-bg">
+                      <img
+                        width={388}
+                        height={160}
+                        className="img-full"
+                        src="https://turfmatters.co.uk/wp-content/uploads/2020/03/Cricket-Pitch.jpg"
+                        alt="cover"
+                      />
+                    </div>
+                    <div className="inner-wrapper">
+                      <div className="product-img academy-profile d-flex justify-content-center">
+                        <img
+                          width={100}
+                          height={100}
+                          src={player.playerProfileImg}
+                          alt="Player"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            {/* If we need pagination */}
+            <div className="swiper-pagination" />
+          </div>
         </div>
-    );
+      </div>
+      <div className="player-name">
+        <div>
+          <h2>{player.playerName}</h2>
+          <p>{player.playerRole}</p>
+        </div>
+      </div>
+      <p className="about">{player.aboutPlayer}</p>
+      <h2>Overview</h2>
+      <table id="customers">
+        <tr>
+          <th>Matchs</th>
+          <th>Runs</th>
+          <th>Wkts</th>
+          <th>Height Runs</th>
+          <th>Height Wkts</th>
+        </tr>
+        <tr>
+          <td>{player.totalMatches}</td>
+          <td>{player.totalRuns}</td>
+          <td>{player.totalWickets}</td>
+          <td>{player.heightRuns}</td>
+          <td>{player.heightWickets}</td>
+        </tr>
+      </table>
+      <h2>Latest Matches</h2>
+      <table id="customers">
+        <tr>
+          <th>Date</th>
+          <th>R</th>
+          <th>B</th>
+          <th>W</th>
+          <th>O</th>
+          <th>T</th>
+          <th>Vs T</th>
+          <th></th>
+        </tr>
+        {
+          matches.map(match=> match.playerId === player._id && 
+            <tr>
+          <td>{match.date}</td>
+          <td>{match.runs}</td>
+          <td>{match.ballFaced}</td>
+          <td>{match.wikts}</td>
+          <td>{match.overs}</td>
+          <td>{match.teamName}</td>
+          <td>{match.aganistTeam}</td>
+          <td>{match.outOrNotOut}</td>
+        </tr>
+            )
+        }
+        
+      </table>
+    </div>
+  );
 };
 
 export default PlayerDetails;

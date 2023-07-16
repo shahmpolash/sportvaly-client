@@ -1,52 +1,169 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import banner from '../images/banner-img.jpg';
 import './Banner.css';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 const Banner = () => {
+  const [user] = useAuthState(auth)
+  const [players, setPlayers] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/players`)
+      .then((res) => res.json())
+      .then((info) => setPlayers(info));
+  }, []);
+
+
+
     return (
         <div>
-            <section class="slider">
-                <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="images/slider/slider3.jpg" class="d-block w-100" alt="first slide" />
-                                <div class="container">
-                                    <div class="carousel-caption text-left">
-                                        <h1 class="">Quisque blandit sed</h1>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.</p>
-                                        <p><a class="btn btn-default btn-lg" href="#" role="button">get started</a><a class="btn btn-default btn-lg" href="#" role="button">read more</a></p>
-                                    </div>
-                                </div>
+         <div className="hero-section section-gap-top-25">
+          <div className="container">
+            {/* Start Hero Area */}
+            <div className="hero-area hero-area--style-1 hero-slider-active">
+              {/* Slider main container */}
+              <div className="swiper">
+                {/* Additional required wrapper */}
+                <div className="swiper-wrapper">
+                  {/* Slides */}
+                  <div className="swiper-slide">
+                    <div className="hero-singel-slide ">
+                      <div className="hero-bg">
+                        <img
+                          width={388}
+                          height={160}
+                          className="img-full"
+                          src="https://htmldemo.net/carce/carce/assets/images/hero/bg/hero-bg-1.jpg"
+                          alt="cover"
+                        />
+                      </div>
+                      <div className="inner-wrapper">
+                        <div className="content">
+                        <p className="title-tag">Hi</p>
+                          {
+                            players.map(player => player.playerEmail === user?.email &&
+                              <h1 className="title">{player.playerName}</h1>
+                              )
+                            
+                          }
+                          {
+                            players.filter(player => player.playerEmail === user?.email).length === 0 &&
+                            <h1>Update  Profile</h1>
+                            
+                          }
+                         
                         </div>
-                        <div class="carousel-item">
-                            <img src="images/slider/slider2.jpg" class="d-block w-100" alt="second slide" />
-                                <div class="container">
-                                    <div class="carousel-caption text-left">
-                                        <h1 class="">Justo rutrum venenatis. Mauris accumsan posuere mauris</h1>
-                                        <p>Sed et orci purus. Vestibulum molestie, dolor sit amet viverra facilisis, justo magna.</p>
-                                        <p><a class="btn btn-default btn-lg" href="#" role="button">get started</a><a class="btn btn-default btn-lg" href="#" role="button">read more</a></p>
-                                    </div>
-                                </div>
+                        <div className="product-img">
+                          <img
+                            width={149}
+                            height={127}
+                            className="img-fluid"
+                            src="https://i.ibb.co/J39nWqK/batpng.png"
+                            alt="cover"
+                          />
+                          <div className="shape shape-1">
+                            <img
+                              width={83}
+                              height={83}
+                              className="img-fluid"
+                              src="https://i.ibb.co/J39nWqK/batpng.png"
+                              alt="img"
+                            />
+                          </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="images/slider/slider1.jpg" class="d-block w-100" alt="third slide" />
-                                <div class="container">
-                                    <div class="carousel-caption text-left">
-                                        <h1 class="">Vivamus ultrices mattis</h1>
-                                        <p>Consectetur pretium leo. Proin suscipit imperdiet neque, quis lacinia elit cursus nec.</p>
-                                        <p><a class="btn btn-default btn-lg" href="#" role="button">get started</a><a class="btn btn-default btn-lg" href="#" role="button">read more</a></p>
-                                    </div>
-                                </div>
-                        </div>
+                      </div>
                     </div>
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <span class="glyphicon carousel-control-prev-icon"></span></a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <span class="glyphicon carousel-control-next-icon"></span></a>
-
+                  </div>
+                  <div className="swiper-slide">
+                    <div className="hero-singel-slide">
+                      <div className="hero-bg">
+                        <img
+                          width={388}
+                          height={160}
+                          className="img-full"
+                          src="https://htmldemo.net/carce/carce/assets/images/hero/bg/hero-bg-1.jpg"
+                          alt="image"
+                        />
+                      </div>
+                      <div className="inner-wrapper">
+                        <div className="content">
+                          <p className="title-tag">Summer</p>
+                          <h1 className="title">Fashion</h1>
+                          <h2 className="sub-title">SALE</h2>
+                          <h3 className="sub-title">
+                            UP to <span>70% </span> off
+                          </h3>
+                        </div>
+                        <div className="product-img">
+                          <img
+                            width={127}
+                            height={98}
+                            className="img-fluid"
+                            src="https://htmldemo.net/carce/carce/assets/images/hero/product/product-2.png"
+                            alt="image"
+                          />
+                          <div className="shape shape-1">
+                            <img
+                              width={83}
+                              height={83}
+                              className="img-fluid"
+                              src="https://htmldemo.net/carce/carce/assets/images/hero/shape/shape-dotted.png"
+                              alt="image"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="swiper-slide">
+                    <div className="hero-singel-slide">
+                      <div className="hero-bg">
+                        <img
+                          width={388}
+                          height={160}
+                          className="img-full"
+                          src="https://htmldemo.net/carce/carce/assets/images/hero/bg/hero-bg-1.jpg"
+                          alt="image"
+                        />
+                      </div>
+                      <div className="inner-wrapper">
+                        <div className="content">
+                          <p className="title-tag">Summer</p>
+                          <h1 className="title">Fashion</h1>
+                          <h2 className="sub-title">SALE</h2>
+                          <h3 className="sub-title">
+                            UP to <span>70% </span> off
+                          </h3>
+                        </div>
+                        <div className="product-img">
+                          <img
+                            width={126}
+                            height={98}
+                            className="img-fluid"
+                            src="https://htmldemo.net/carce/carce/assets/images/hero/product/product-1.png"
+                            alt="image"
+                          />
+                          <div className="shape shape-1">
+                            <img
+                              width={83}
+                              height={83}
+                              className="img-fluid"
+                              src="https://htmldemo.net/carce/carce/assets/images/hero/shape/shape-dotted.png"
+                              alt="image"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
-            </section>
+              </div>
+              {/* If we need pagination */}
+              <div className="swiper-pagination" />
+            </div>
+            {/* End Hero Area */}
+          </div>
+        </div>
         </div>
     );
 };

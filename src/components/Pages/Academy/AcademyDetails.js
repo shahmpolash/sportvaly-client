@@ -1,74 +1,90 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Card, Tab, Tabs } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import './AcademyDetails.css';
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import "./AcademyDetails.css";
 
 const AcademyDetails = () => {
-    const navigate = useNavigate();
-    const { id } = useParams();
-    const [academy, setAcademy] = useState({});
-    useEffect(() => {
-        const url = `http://localhost:5000/academy/${id}`;
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setAcademy(data));
-    }, []);
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [academy, setAcademy] = useState({});
+  useEffect(() => {
+    const url = `http://localhost:5000/academy/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setAcademy(data));
+  }, []);
 
-    const academyUpdate = id =>{
-        navigate(`/update/${id}`);
-    }
-    return (
-        <div className='container'>
-            <Card className="bg-dark text-red">
-                <Card.Img className='banner-img' src={academy.banner} alt="Card image" />
-                <Card.ImgOverlay>
-                    <div className='d-flex justify-content-between'>
-                        <h1 className='academyname'>{academy.name}</h1>
-                        <img className='logo' src={academy.logo} alt="" />
+  return (
+    <div>
+      <div className="hero-section section-gap-top-25">
+        <div className="container">
+          {/* Start Hero Area */}
+          <div className="hero-area hero-area--style-1 hero-slider-active">
+            {/* Slider main container */}
+            <div className="swiper">
+              {/* Additional required wrapper */}
+              <div className="swiper-wrapper">
+                {/* Slides */}
+                <div className="swiper-slide">
+                  <div className="hero-singel-slide">
+                    <div className="hero-bg">
+                      <img
+                        width={388}
+                        height={160}
+                        className="img-full"
+                        src={academy.academyCoverPhoto}
+                        alt="cover"
+                      />
                     </div>
-                </Card.ImgOverlay>
-            </Card>
-            <Tabs
-                defaultActiveKey="details"
-                transition={false}
-                id="noanim-tab-example"
-                className="mb-3 d-flex justify-content-center"
-            >
-                <Tab eventKey="details" title="Details" default>
-                    <p className='details'>{academy.details}</p>
-                    <h5 className='details'>Practice Date: {academy.practice_schedule}</h5>
-                    <h5 className='details'>Practice Time: {academy.practice_time}</h5>
-                    <h5 className='details'>Admission Fee: {academy.admission_fee} .Taka</h5>
-                    <h5 className='details'>Monthly Fee: {academy.monthly_fee} .Taka</h5>
-                    <h5 className='details'>Practice Time: {academy.practice_time}</h5>
-                    <div className='d-flex justify-content-center'><Button>{academy.phone}</Button></div>
-                </Tab>
-                <Tab eventKey="videos" title="Videos">
-                    <div className='d-flex justify-content-center'>
-                    <iframe width="560" height="315" src={academy.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div className="inner-wrapper">
+                      <div className="product-img academy-profile d-flex justify-content-center">
+                        <img
+                          width={100}
+                          height={100}
+                          src={academy.academyProfilePhoto}
+                          alt="Academy"
+                        />
+                      </div>
                     </div>
-                    
-                </Tab>
-                <Tab eventKey="photos" title="Photos">
-                   <div className='d-flex justify-content-center'>
-                   <div className='photos'>
-                        <img src={academy.photo1} alt="" />
-                        <img src={academy.photo2} alt="" />
-                        <img src={academy.photo3} alt="" />
-                        <img src={academy.photo4} alt="" />
-                    </div>
-                   </div>
-                    
-                </Tab>
-                <Tab className='text-center' eventKey="contact" title="Contact">
-                    <p>Academy Address: {academy.address}</p>
-                    <p>Phone Number: {academy.phone}</p>
-                    
-                </Tab>
-            </Tabs>
-            <div className='d-flex justify-content-center mt-5'><Button onClick={() => academyUpdate(id)} className='mx-2'>Update This Academy</Button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* If we need pagination */}
+            <div className="swiper-pagination" />
+          </div>
         </div>
-    );
+      </div>
+      <div className="center-position"> 
+      <h1>{academy.academyName}</h1>
+      </div>
+      <div className="practice-date">
+      <div>
+        <div className="center-position">
+        <h2>{academy.academyAddress}</h2>
+        </div>
+        <div className="center-position">
+        <h2>{academy.academyPhoneNumber}</h2>
+        </div>
+      </div>
+      </div>
+      <div className="practice-date">
+      <div>
+        <div className="center-position">
+        <h2>Practice Date: {academy.practiceDate}</h2>
+        </div>
+        <div className="center-position">
+          <p>Practice Time: {academy.practiceTime}</p>
+          </div>
+      </div>
+      </div>
+      <div className="center-position"> 
+      <h1>About</h1>
+      </div>
+      <div className="center-position">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, voluptatum autem explicabo sint, perferendis impedit saepe, veniam provident dicta vitae voluptate repellendus labore accusantium optio nobis enim? Officiis, recusandae at.</p>
+      </div>
+    </div>
+  );
 };
 
 export default AcademyDetails;

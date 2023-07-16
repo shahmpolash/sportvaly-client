@@ -28,9 +28,9 @@ const AddRecord = () => {
             <h2 className='text-center'>Add a Player Record {user.displayName}</h2>
             <form className='d-flex flex-column record' onSubmit={handleSubmit(onSubmit)}>
 
-                <input className='mb-2' value={user.email} {...register("email")} placeholder='Player Name' />
+                <input hidden className='mb-2' value={user.email} {...register("email")}  />
 
-                <input className='mb-2' {...register("name")} placeholder='Player Name' />
+                <input hidden className='mb-2' {...register("name")} placeholder='Player Name' />
 
                 <input className='mb-2' {...register("team", { required: true, maxLength: 200 })} placeholder='Team or Academy Name' />
 
@@ -39,6 +39,7 @@ const AddRecord = () => {
                 <input className='mb-2' type="text" {...register("role")} placeholder='Role: Batsman/Bolwler/Allrounder' />
 
                 <input className='mb-2' type="text" {...register("batting_style")} placeholder="Batting Style" />
+
                 <input className='mb-2' type="text" {...register("bowling_style")} placeholder="Bowling Style" />
 
                 <input className='mb-2' type="number" {...register("total_matchs")} placeholder="Total Matchs" />

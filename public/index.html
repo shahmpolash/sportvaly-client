@@ -9,14 +9,20 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-<link href='//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-<link href="css/style.css?t=3" rel="stylesheet">
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/assets/css/vendor/icomoon.css" />
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="/assets/css/plugins/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/ion.rangeSlider.min.css">
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
 
 
 
@@ -26,15 +32,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    
     <title>React App</title>
   </head>
   <body>
@@ -51,30 +49,135 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script type="text/javascript" src="js/jquery.min.js"></script> 
-<!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="js/bootstrap.bundle.js"></script> 
-<script type="text/javascript">
+    <script src="/assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
 
-$('.carousel').carousel({
-  interval: 3500, // in milliseconds
-  pause: 'none' // set to 'true' to pause slider on mouse hover
-})
+    <!--Plugins JS-->
+    <script src="/assets/js/plugins/swiper-bundle.min.js"></script>
+    <script src="/assets/js/plugins/ion.rangeSlider.min.js"></script>
+
+    <!-- Minify Version -->
+    <!-- <script src="assets/js/vendor.min.js"></script>
+    <script src="assets/js/plugins.min.js"></script> -->
+
+    <!--Main JS (Common Activation Codes)-->
+    <script src="/assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.min.js"></script> -->
+
+
 
 </script>
-<script type="text/javascript">
+<script>
+  function filterFunction(that, event) {
+      let container, input, filter, li, input_val;
+      container = $(that).closest(".searchable");
+      input_val = container.find("input").val().toUpperCase();
+      if (["ArrowDown", "ArrowUp", "Enter"].indexOf(event.key) != -1) {
+          keyControl(event, container);
+      } else {
+          li = container.find("ul li");
+          li.each(function(i, obj) {
+              if ($(this).text().toUpperCase().indexOf(input_val) > -1) {
+                  $(this).show();
+              } else {
+                  $(this).hide();
+              }
+          });
+          container.find("ul li").removeClass("selected");
+          setTimeout(function() {
+              container.find("ul li:visible").first().addClass("selected");
+          }, 100);
+      }
+  }
 
-$( "a.submenu" ).on("click",function() {
-$( ".menuBar" ).slideToggle( "normal", function() {
-// Animation complete.
-});
-});
-/*$( "ul li.dropdown a" ).on("click",function() {
-$( "ul li.dropdown ul" ).slideToggle( "normal", function() {
-// Animation complete.
-});
-$('ul li.dropdown').toggleClass('current');
-});*/
+  function keyControl(e, container) {
+      if (e.key == "ArrowDown") {
+          if (container.find("ul li").hasClass("selected")) {
+              if (
+                  container
+                  .find("ul li:visible")
+                  .index(container.find("ul li.selected")) +
+                  1 <
+                  container.find("ul li:visible").length
+              ) {
+                  container
+                      .find("ul li.selected")
+                      .removeClass("selected")
+                      .nextAll()
+                      .not('[style*="display: none"]')
+                      .first()
+                      .addClass("selected");
+              }
+          } else {
+              container.find("ul li:first-child").addClass("selected");
+          }
+      } else if (e.key == "ArrowUp") {
+          if (
+              container.find("ul li:visible").index(container.find("ul li.selected")) >
+              0
+          ) {
+              container
+                  .find("ul li.selected")
+                  .removeClass("selected")
+                  .prevAll()
+                  .not('[style*="display: none"]')
+                  .first()
+                  .addClass("selected");
+          }
+      } else if (e.key == "Enter") {
+          container.find("input").val(container.find("ul li.selected").text()).blur();
+          onSelect(container.find("ul li.selected").text());
+      }
+  }
+
+  function onSelect(val) {}
+  $(".searchable input").focus(function() {
+      $(this).closest(".searchable").find("ul").show();
+      $(this).closest(".searchable").find("ul li").show();
+      $('.submit__btn').css({
+          "display": "block"
+      })
+      $('.close__btn').css({
+          "display": "block"
+      })
+      $('.search__btn').css({
+          'display': "none"
+      })
+  });
+  $(".searchable input").blur(function() {
+      let that = this;
+      setTimeout(function() {
+          $(that).closest(".searchable").find("ul").hide();
+          $('.search__btn').css({
+              'display': "block"
+          })
+          $('.submit__btn').css({
+              "display": "none"
+          })
+          $('.close__btn').css({
+              "display": "none"
+          })
+      }, 300);
+  });
+  $('.search__btn').on("click", function() {
+      $(this).closest(".searchable").find("input").val($(this).text()).blur();
+      onSelect($(this).text());
+  });
+  $(document).on("click", ".searchable ul li", function() {
+      $(this).closest(".searchable").find("input").val($(this).text()).blur();
+      onSelect($(this).text());
+  });
+  $(".searchable ul li").hover(function() {
+      $(this).closest(".searchable").find("ul li.selected").removeClass("selected");
+      $(this).addClass("selected");
+  });
+  $('.close__btn').on('click', function() {
+      $('.searchable').find("input").val($(this).text()).blur()
+      $(this).css({
+          "display": "none"
+      })
+  })
 </script>
   </body>
 </html>

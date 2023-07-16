@@ -1,68 +1,178 @@
-import React from 'react';
-import { useForm } from "react-hook-form";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddAcademy = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        const url = `http://localhost:5000/academis/`;
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res=>res.json())
-        .then(result=> {
-            console.log(result);
+  const navigate = useNavigate();
+  const [districts, setDristricts] = useState([]);
 
-        })
-    }
+  useEffect(() => {
+    fetch(`http://localhost:5000/districts`)
+      .then((res) => res.json())
+      .then((info) => setDristricts(info));
+  }, []);
 
+  const handleAcademy = (event) => {
+    event.preventDefault();
+    const district = event.target.district.value;
+    const academyName = event.target.academyName.value;
+    const academyCoverPhoto = event.target.academyCoverPhoto.value;
+    const academyProfilePhoto = event.target.academyProfilePhoto.value;
+    const academyAddress = event.target.academyAddress.value;
+    const academyPhoneNumber = event.target.academyPhoneNumber.value;
+    const practiceDate = event.target.practiceDate.value;
+    const practiceTime = event.target.practiceTime.value;
+    const academyPhotoOne = event.target.academyPhotoOne.value;
+    const academyPhotoTwo = event.target.academyPhotoTwo.value;
+    const academyPhotoThree = event.target.academyPhotoThree.value;
+    const academyPhotoFour = event.target.academyPhotoFour.value;
 
-    return (
-        <div className='mx-auto mt-5'>
-            <h2 className='text-center'>Add a Academy</h2>
-            <form className='d-flex flex-column ' onSubmit={handleSubmit(onSubmit)}>
-                
-                <input className='mb-2' {...register("name")} placeholder='Academy Name' />
+    const newAcademy = {
+      district,
+      academyName,
+      academyCoverPhoto,
+      academyProfilePhoto,
+      academyAddress,
+      academyPhoneNumber,
+      practiceDate,
+      practiceTime,
+      academyPhotoOne,
+      academyPhotoTwo,
+      academyPhotoThree,
+      academyPhotoFour,
+    };
 
-                <textarea className='mb-2' {...register("details", { required: true, maxLength: 200 })} placeholder='Academy Details' />
+    const url = `http://localhost:5000/academy`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newAcademy),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        navigate("/");
+      });
+  };
 
-                <textarea className='mb-2' {...register("address", { required: true, maxLength: 200 })} placeholder='Academy Address' />
+  return (
+    <div>
+      <form onSubmit={handleAcademy}>
+        <ul>
+        <select name="district">
+          {districts.map((district) => (
+            <option value={district.districtName}>
+              {district.districtName}
+            </option>
+          ))}
+        </select>
 
-                <input className='mb-2' type="text" {...register("practice_schedule")} placeholder='Practice Date. Sat - Wed' />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyName"
+            placeholder="Academy Name"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("practice_time")} placeholder="Practice Time . 7am - 11am" />
-                <input className='mb-2' type="number" {...register("admission_fee")} placeholder="Admission Fee" />
-               
-                <input className='mb-2' type="number" {...register("monthly_fee")} placeholder="Monthly Fee" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyCoverPhoto"
+            placeholder="Academy Cover Photo"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="number" {...register("phone")} placeholder="Phone Number" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyProfilePhoto"
+            placeholder="Academy Profile Picture"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="number" {...register("altphone")} placeholder="Another Phone Number" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyAddress"
+            placeholder="Academy Address"
+          ></input>{" "}
+          <br />
+        </li>
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyPhoneNumber"
+            placeholder="Academy Phone Number"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("thumbnail")} placeholder="Thumbnail URL" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="practiceDate"
+            placeholder="Practice Date Sat - Wed"
+          ></input>{" "}
+          <br />
+        </li>
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="practiceTime"
+            placeholder="Practice Time: 8am - 11am"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("banner")} placeholder="Banner URL" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyPhotoOne"
+            placeholder="Photo One"
+          ></input>{" "}
+          <br />
+        </li>
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyPhotoTwo"
+            placeholder="Photo Two"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("logo")} placeholder="Logo URL" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyPhotoThree"
+            placeholder="Photo Three"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("photo1")} placeholder="Photo 1 URL" />
+        <li class="single-form-item">
+          <input
+            type="text"
+            name="academyPhotoFour"
+            placeholder="Photo Four"
+          ></input>{" "}
+          <br />
+        </li>
 
-                <input className='mb-2' type="text" {...register("photo2")} placeholder="Photo 2 URL" />
-
-                <input className='mb-2' type="text" {...register("photo3")} placeholder="Photo 3 URL" />
-
-                <input className='mb-2' type="text" {...register("photo4")} placeholder="Photo 4 URL" />
-
-                <input className='mb-2' type="text" {...register("video")} placeholder="Video URL" />
-
-                <input type="submit" value="Add Academy"/>
-            </form>
-
-        </div>
-    );
+        <input
+          className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn"
+          type="submit"
+          value="Add Academy"
+        ></input>
+        </ul>
+        
+      </form>
+    </div>
+  );
 };
 
 export default AddAcademy;

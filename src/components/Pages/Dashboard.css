@@ -1,0 +1,142 @@
+.link {
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #282A35;
+    color: white;
+    position: relative;
+  }
+  
+  .ribbon {
+    width: 60px;
+    font-size: 14px;
+    padding: 4px;
+    position: absolute;
+    right: -25px;
+    top: -12px;
+    text-align: center;
+    border-radius: 25px;
+    transform: rotate(20deg);
+    background-color: #ff9800;
+    color: white;
+  }
+.dashboard-banner h2{
+    color: aliceblue;
+
+}
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    font-size: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  td{
+    font-size: 10px;
+  }
+  .cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card-one{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+  .card-two{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+  .card-three{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+  .card-four{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+ 
+  .all-cards{
+    display: flex;
+    justify-content: center;
+  }
+  .cards img{
+    width: 30px;
+    height: 25px;
+  }
+  .single{
+    margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 15px;
+  }
+  .single p{
+    color: rgb(5, 5, 5);
+    font-size: 10px;
+  }
+  .text{
+    display: flex;
+    justify-content: center;
+  }
+  h1{
+    color: white;
+    font-weight: 700;
+  }
+  h3{
+    color: white;
+    font-weight: 700;
+   
+  }
+  .title h1{
+    color: #282A35;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  }
+  .runs{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #f8b5516c;
+    padding: 5px;
+  }
+  .wkts{
+    border-radius: 5px;
+    background-color: #f8b5516c;
+    padding: 5px;
+  }

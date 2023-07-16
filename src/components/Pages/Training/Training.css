@@ -1,0 +1,92 @@
+.cricket-training{
+    background: #c2e59c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+padding: 30px;
+border-radius: 20px;
+margin-top: 20px;
+margin-bottom: 10px;
+
+}
+
+.cricket-training h2{
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.training-cards{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .single-card{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #dcfff22c;
+  }
+  .card-two{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+  .card-three{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+  .card-four{
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    margin: 8px;
+    padding: 5px;
+    background-color: #04AA6D;
+  }
+ 
+  .all-cards{
+    display: flex;
+    justify-content: center;
+  }
+  .training-cards img{
+    width: 50px;
+    height: 40px;
+  }
+  .single-training-card{
+    margin: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 15px;
+  }
+  .single-training-card p{
+    color: rgb(5, 5, 5);
+    font-size: 10px;
+  }
+  .text{
+    display: flex;
+    justify-content: center;
+  }
+  h1{
+    color: white;
+    font-weight: 700;
+  }
+  h3{
+    color: white;
+    font-weight: 700;
+   
+  }
+  .title h1{
+    color: #282A35;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  }
