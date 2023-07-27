@@ -8,12 +8,20 @@ const Dashboard = () => {
   const [user] = useAuthState(auth);
   const [players, setPlayers] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [orders, setOrders] = useState([]);
 
   useEffect(() => {
     const url = `http://localhost:5000/matches`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMatches(data));
+  }, []);
+
+  useEffect(() => {
+    const url = `http://localhost:5000/orders`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setOrders(data));
   }, []);
 
   useEffect(() => {
@@ -163,7 +171,10 @@ const Dashboard = () => {
                       {players.map(
                         (player) =>
                           player.playerEmail === user?.email && (
-                            <Link class="btn" to={`/last-match/${player._id}`}>
+                            <Link
+                              class="btn"
+                              to={`/edit-profile/${player._id}`}
+                            >
                               <img
                                 src="https://i.ibb.co/CtXG2Ny/edit.png"
                                 alt=""
@@ -177,24 +188,6 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  <div className="single">
-                    <div className="card-four">
-                      {players.map(
-                        (player) =>
-                          player.playerEmail === user?.email && (
-                            <Link class="btn" to={`/last-match/${player._id}`}>
-                              <img
-                                src="https://static-00.iconduck.com/assets.00/gear-settings-icon-2048x2041-ad5sr7k6.png"
-                                alt=""
-                              />
-                            </Link>
-                          )
-                      )}
-                    </div>
-                    <div className="text">
-                      <p>Edit</p>
-                    </div>
-                  </div>
                   <div className="single">
                     <div className="card-four">
                       {players.map(
@@ -230,7 +223,7 @@ const Dashboard = () => {
                   <th>Vs T</th>
                   <th></th>
                 </tr>
-                
+
                 {matches.map(
                   (match) =>
                     match.playerEmail === user?.email && (
@@ -247,26 +240,50 @@ const Dashboard = () => {
                     )
                 )}
               </table>
-              {matches.filter((match) => match.playerEmail === user?.email).length === 0 && (
-                  <ul>
-                    <li>
-                      {
-                        players.map(player => player.playerEmail === user?.email && <Link
-                          className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn"
-                          to={`/last-match/${player._id}`}
-                        >
-                          Add Your Last Match Recoard
-                        </Link>
+              {matches.filter((match) => match.playerEmail === user?.email)
+                .length === 0 && (
+                <ul>
+                  <li>
+                    {players.map(
+                      (player) =>
+                        player.playerEmail === user?.email && (
+                          <Link
+                            className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn"
+                            to={`/last-match/${player._id}`}
+                          >
+                            Add Your Last Match Recoard
+                          </Link>
                         )
-                      }
-                      
-                    </li>
-                  </ul>
-                )}
+                    )}
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
         </div>
       )}
+      <div className="my-orders btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn">
+        <h1>My Orders</h1>
+      </div>
+      <table id="customers">
+                <tr>
+                  <th>Product</th>
+                  <th>Amount</th>
+                  <th>Order Status</th>
+                  <th>Delivery Status</th>
+                </tr>
+                {
+                    orders.map(order=> order.customerEmail === user?.email &&
+                      <tr>
+                        <td>{order.productName}</td>
+                        <td>{order.productPrice} Tk</td>
+                        <td>{order.orderStatus}</td>
+                        <td>{order.deliveryStatus}</td>
+                      </tr>)
+
+                    
+                  }
+              </table>
     </div>
   );
 };

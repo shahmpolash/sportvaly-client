@@ -38,6 +38,7 @@ import UpdateTotalRuns from './components/Pages/UpdateTotalRuns';
 import UpdateTotalWickets from './components/Pages/UpdateTotalWickets';
 import UpdateHeightRuns from './components/Pages/UpdateHeightRuns';
 import UpdateHeightWkts from './components/Pages/Videos/UpdateHeightWkts';
+import EditProfile from './components/Pages/EditProfile';
 
 
 function App() {
@@ -86,6 +87,7 @@ function App() {
         <Route path='/last-match/:id' element ={<RequireAuth><LatestMatchs></LatestMatchs></RequireAuth>}></Route>
         <Route path='/add-to-profile/:id' element ={<RequireAuth><AddToProfile></AddToProfile></RequireAuth>}></Route>
         <Route path='/update' element ={<RequireAuth><Update></Update></RequireAuth>}></Route>
+        <Route path='/edit-profile/:id' element ={<RequireAuth><EditProfile></EditProfile></RequireAuth>}></Route>
         <Route path='/total-matches/:id' element ={<RequireAuth><UpdateTotalMatches></UpdateTotalMatches></RequireAuth>}></Route>
         <Route path='/total-runs/:id' element ={<RequireAuth><UpdateTotalRuns></UpdateTotalRuns></RequireAuth>}></Route>
         <Route path='/total-wkts/:id' element ={<RequireAuth><UpdateTotalWickets></UpdateTotalWickets></RequireAuth>}></Route>

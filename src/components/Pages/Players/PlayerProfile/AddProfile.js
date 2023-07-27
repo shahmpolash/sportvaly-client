@@ -57,7 +57,7 @@ const AddProfile = () => {
         <form onSubmit={handlePlayerProfile}>
     <ul>
       <li class="single-form-item">
-        <input type="text" name="playerName" placeholder="Your Name" />
+        <input required type="text" name="playerName" placeholder="Your Name" />
       </li>
       <li class="single-form-item">
         <input hidden type="text" name="updated" value="No" />
@@ -69,38 +69,38 @@ const AddProfile = () => {
         <input hidden type="text" name="profileStatus" value='Pending' />
       </li>
       <li class="single-form-item">
-        <input type="text" name="playerProfileImg" placeholder="Profile Image" />
+        <input required type="text" name="playerProfileImg" placeholder="Profile Image" />
       </li>
       <li class="single-form-item">
-        <input type="text" name="dateOfBirth" placeholder="Date of Birth" />
+        <input required type="text" name="dateOfBirth" placeholder="Date of Birth" />
       </li>
       <li class="single-form-item">
-      <select name="playerRole">
+      <select required name="playerRole">
       <option value='Batsman'>Batsman</option>
       <option value='Bowler'>Bowler</option>
       <option value='Allrounder'>Allrounder</option>
      </select>
      </li>
       <li class="single-form-item">
-        <input type="text" name="teamName" placeholder="Team or Academy Name" />
+        <input required type="text" name="teamName" placeholder="Team or Academy Name" />
       </li>
       <li class="single-form-item">
-        <input type="number" name="totalMatches" placeholder="Total Matches You Have Played" />
+        <input required type="number" name="totalMatches" placeholder="Total Matches You Have Played" />
       </li>
       <li class="single-form-item">
-        <input type="number" name="totalRuns" placeholder="Total Runs" />
+        <input required type="number" name="totalRuns" placeholder="Total Runs" />
       </li>
       <li class="single-form-item">
-        <input type="number" name="totalWickets" placeholder="Total Wickets" />
+        <input required type="number" name="totalWickets" placeholder="Total Wickets" />
       </li>
       <li class="single-form-item">
-        <input type="number" name="heightRuns" placeholder="Height Runs" />
+        <input required type="number" name="heightRuns" placeholder="Height Runs" />
       </li>
       <li class="single-form-item">
-        <input type="number" name="heightWickets" placeholder="Height Wickets" />
+        <input required type="number" name="heightWickets" placeholder="Height Wickets" />
       </li>
       <li class="single-form-item">
-        <textarea type="text" name="aboutPlayer" placeholder="About You" />
+        <textarea required type="text" name="aboutPlayer" placeholder="About You" maxlength="100" />
       </li>
       <li class="single-form-item">
         <input className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn" type="submit" value="Create your profile" />

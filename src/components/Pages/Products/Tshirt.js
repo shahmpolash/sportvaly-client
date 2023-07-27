@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Tshirt.css';
 
 const Tshirt = () => {
 
@@ -17,8 +18,8 @@ const Tshirt = () => {
     return (
         <div>
             <div className="title-content">
-              <h2 className="title">New Arrival</h2>
-              <a href="shop.html" className="view-all">
+              <h2 className="title">T-shirt</h2>
+              <a href="/shop" className="view-all">
                 View All
               </a>
             </div>
@@ -40,35 +41,15 @@ const Tshirt = () => {
                     <div className="content">
                       <div className="content--left">
                         <ul className="review-star">
-                          <li className="items fill">
-                            <i className="icon icon-carce-star-full" />
-                          </li>
-                          <li className="items fill">
-                            <i className="icon icon-carce-star-full" />
-                          </li>
-                          <li className="items fill">
-                            <i className="icon icon-carce-star-full" />
-                          </li>
-                          <li className="items fill">
-                            <i className="icon icon-carce-star-full" />
-                          </li>
-                          <li className="items fill">
-                            <i className="icon icon-carce-star-full" />
-                          </li>
+                          
                         </ul>
-                        <a href="single-product.html" className="title">
+                        <p className="title product-name">
                           {product.productName}
-                        </a>
+                        </p>
                         <span className="price">Tk. {product.productPrice}</span>
                       </div>
                       <div className="content--right">
-                        <a
-                          href="wishlist.html"
-                          aria-label="Wishlist"
-                          className="btn btn--size-33-33 btn--center btn--round btn--color-radical-red btn--bg-white btn--box-shadow"
-                        >
-                          <i className="icon icon-carce-heart" />
-                        </a>
+                        
                       </div>
                     </div>
                   </div>

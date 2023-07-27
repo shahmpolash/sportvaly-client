@@ -30,21 +30,21 @@ const ProductDetails = () => {
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="product-gallery-single-item">
-                    <div class="image">
+                    <div class="image product-details-image">
                       <img
                         class="img-fluid"
                         width="276"
                         height="172"
                         src={product.productImage}
-                        alt=""
+                        alt="product Img"
                       />
 
                       <div class="image-shape image-shape-1"></div>
                       <div class="image-shape image-shape-2"></div>
                     </div>
                     <ul>
-                    <li className="single-form-item">
-                    <Button className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn">Price: Tk {product.productPrice}</Button>
+                    <li className="single-form-item price btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn">
+                    <Button className="">Price: Tk {product.productPrice}</Button>
                     </li>
                     </ul>
                   </div>

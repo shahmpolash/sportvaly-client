@@ -44,13 +44,8 @@ const PlayerDetails = () => {
                       />
                     </div>
                     <div className="inner-wrapper">
-                      <div className="product-img academy-profile d-flex justify-content-center">
-                        <img
-                          width={100}
-                          height={100}
-                          src={player.playerProfileImg}
-                          alt="Player"
-                        />
+                      <div className="product-img academy-profile">
+                        <img width={120} height={120} src={player.playerProfileImg} alt="Player"/>
                       </div>
                     </div>
                   </div>
