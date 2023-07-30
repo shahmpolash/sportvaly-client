@@ -9,7 +9,7 @@ const AddProfile = () => {
     const [players, setPlayers] = useState([]);
   
     useEffect(() => {
-      fetch(`http://localhost:5000/players`)
+      fetch(`${process.env.BACKEND_URL}/players`)
         .then((res) => res.json())
         .then((info) => setPlayers(info));
     }, []);
@@ -34,7 +34,7 @@ const AddProfile = () => {
     
         const newPlayer = {playerName, updated, playerEmail, dateOfBirth, playerProfileImg, playerRole, teamName, totalMatches, totalRuns, totalWickets, heightRuns ,heightWickets, aboutPlayer};
 
-        const url = `http://localhost:5000/add-player`;
+        const url = `${process.env.BACKEND_URL}/add-player`;
         fetch(url, {
           method: "POST",
           headers: {

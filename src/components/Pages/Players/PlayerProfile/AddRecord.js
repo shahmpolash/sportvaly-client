@@ -9,7 +9,7 @@ const AddRecord = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        const url = `http://localhost:5000/players/`;
+        const url = `${process.env.BACKEND_URL}/players/`;
         fetch(url, {
             method: 'POST',
             headers: {

@@ -15,7 +15,7 @@ const Dashboard = () => {
     const [records, setRecords] = useState([]);
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:5000/profile?email=${user.email}`;
+            const url = `${process.env.BACKEND_URL}/profile?email=${user.email}`;
             fetch(url)
                 .then(res => res.json())
                 .then(data => setRecords(data));

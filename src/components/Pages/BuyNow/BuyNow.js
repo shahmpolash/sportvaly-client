@@ -11,7 +11,7 @@ const BuyNow = () => {
   const [variations, setVariations] = useState([]);
   
   useEffect(() => {
-    const url = `http://localhost:5000/variations`;
+    const url = `${process.env.BACKEND_URL}/variations`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setVariations(data));
@@ -19,7 +19,7 @@ const BuyNow = () => {
   
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `${process.env.BACKEND_URL}/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));
@@ -45,7 +45,7 @@ const BuyNow = () => {
 
     const order = {productId, orderStatus, deliveryStatus, productName, productImage, paymentStatus, productPrice, productSize, productQnty, customerEmail, customerName, customerAddress, customerThanaName, customerDistrictName, customerPhoneNumber};
 
-    const url = `http://localhost:5000/new-order`;
+    const url = `${process.env.BACKEND_URL}/new-order`;
     fetch(url, {
       method: "POST",
       headers: {

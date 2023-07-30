@@ -16,7 +16,7 @@ const SetPracticeSchedule = () => {
 
         const practiceSchedule = {email, team, datestart, dateend, time}
 
-        fetch('http://localhost:5000/practicetime', {
+        fetch('${process.env.BACKEND_URL}/practicetime', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

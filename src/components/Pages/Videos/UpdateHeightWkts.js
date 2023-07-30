@@ -7,7 +7,7 @@ const UpdateHeightWkts = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/player/${id}`)
+        fetch(`${process.env.BACKEND_URL}/player/${id}`)
           .then((res) => res.json())
           .then((info) => setPlayer(info));
       }, [id]);
@@ -21,7 +21,7 @@ const UpdateHeightWkts = () => {
             heightWickets
         };
     
-        const url = `http://localhost:5000/update-height-wkts/${player._id}`;
+        const url = `${process.env.BACKEND_URL}/update-height-wkts/${player._id}`;
         fetch(url, {
           method: "PUT",
           headers: {

@@ -8,14 +8,14 @@ const PlayerDetails = () => {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/player/${id}`;
+    const url = `${process.env.BACKEND_URL}/player/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPlayer(data));
   }, [id]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/matches`;
+    const url = `${process.env.BACKEND_URL}/matches`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMatches(data));

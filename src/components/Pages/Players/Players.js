@@ -6,7 +6,7 @@ const Players = () => {
    
   const [players, setPlayers] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/players`)
+    fetch(`${process.env.BACKEND_URL}/players`)
       .then((res) => res.json())
       .then((info) => setPlayers(info));
   }, []);

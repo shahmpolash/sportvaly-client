@@ -10,14 +10,14 @@ const TestCart = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = 'http://localhost:5000/orders';
+    const url = '${process.env.BACKEND_URL}/orders';
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   useEffect(() => {
-    const url = `http://localhost:5000/cart-items`;
+    const url = `${process.env.BACKEND_URL}/cart-items`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data.filter(item => item.customerEmail === user?.email && item.placedOrder === "No")));
@@ -43,7 +43,7 @@ const TestCart = () => {
       }))
     };
 
-    const url = `http://localhost:5000/new-order`;
+    const url = `${process.env.BACKEND_URL}/new-order`;
     fetch(url, {
       method: "POST",
       headers: {

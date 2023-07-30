@@ -6,7 +6,7 @@ const HomePageVideos = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/videos`;
+    const url = `${process.env.BACKEND_URL}/videos`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setVideos(data));

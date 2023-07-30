@@ -7,7 +7,7 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = "http://localhost:5000/orders";
+    const url = "${process.env.BACKEND_URL}/orders";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));

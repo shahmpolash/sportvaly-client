@@ -9,7 +9,7 @@ const Update = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/players`)
+        fetch(`${process.env.BACKEND_URL}/players`)
           .then((res) => res.json())
           .then((info) => setPlayers(info));
       }, []);
