@@ -61,101 +61,12 @@ const Banner = () => {
                             src="https://i.ibb.co/J39nWqK/batpng.png"
                             alt="cover"
                           />
-                          <div className="shape shape-1">
-                            <img
-                              width={83}
-                              height={83}
-                              className="img-fluid"
-                              src="https://i.ibb.co/J39nWqK/batpng.png"
-                              alt="img"
-                            />
-                          </div>
+                          
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div className="swiper-slide">
-                    <div className="hero-singel-slide">
-                      <div className="hero-bg">
-                        <img
-                          width={388}
-                          height={160}
-                          className="img-full"
-                          src="https://htmldemo.net/carce/carce/assets/images/hero/bg/hero-bg-1.jpg"
-                          alt="image"
-                        />
-                      </div>
-                      <div className="inner-wrapper">
-                        <div className="content">
-                          <p className="title-tag">Summer</p>
-                          <h1 className="title">Fashion</h1>
-                          <h2 className="sub-title">SALE</h2>
-                          <h3 className="sub-title">
-                            UP to <span>70% </span> off
-                          </h3>
-                        </div>
-                        <div className="product-img">
-                          <img
-                            width={127}
-                            height={98}
-                            className="img-fluid"
-                            src="https://htmldemo.net/carce/carce/assets/images/hero/product/product-2.png"
-                            alt="image"
-                          />
-                          <div className="shape shape-1">
-                            <img
-                              width={83}
-                              height={83}
-                              className="img-fluid"
-                              src="https://htmldemo.net/carce/carce/assets/images/hero/shape/shape-dotted.png"
-                              alt="image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="swiper-slide">
-                    <div className="hero-singel-slide">
-                      <div className="hero-bg">
-                        <img
-                          width={388}
-                          height={160}
-                          className="img-full"
-                          src="https://htmldemo.net/carce/carce/assets/images/hero/bg/hero-bg-1.jpg"
-                          alt="image"
-                        />
-                      </div>
-                      <div className="inner-wrapper">
-                        <div className="content">
-                          <p className="title-tag">Summer</p>
-                          <h1 className="title">Fashion</h1>
-                          <h2 className="sub-title">SALE</h2>
-                          <h3 className="sub-title">
-                            UP to <span>70% </span> off
-                          </h3>
-                        </div>
-                        <div className="product-img">
-                          <img
-                            width={126}
-                            height={98}
-                            className="img-fluid"
-                            src="https://htmldemo.net/carce/carce/assets/images/hero/product/product-1.png"
-                            alt="image"
-                          />
-                          <div className="shape shape-1">
-                            <img
-                              width={83}
-                              height={83}
-                              className="img-fluid"
-                              src="https://htmldemo.net/carce/carce/assets/images/hero/shape/shape-dotted.png"
-                              alt="image"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               </div>
               {/* If we need pagination */}

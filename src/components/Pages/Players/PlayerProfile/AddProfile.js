@@ -57,7 +57,7 @@ const AddProfile = () => {
         <form onSubmit={handlePlayerProfile}>
     <ul>
       <li class="single-form-item">
-        <input required type="text" name="playerName" placeholder="Your Name" />
+        <input required type="text" name="playerName" placeholder="Your Name" maxlength="30" oninput="checkCharacterLimit()" />
       </li>
       <li class="single-form-item">
         <input hidden type="text" name="updated" value="No" />
@@ -72,7 +72,7 @@ const AddProfile = () => {
         <input required type="text" name="playerProfileImg" placeholder="Profile Image" />
       </li>
       <li class="single-form-item">
-        <input required type="text" name="dateOfBirth" placeholder="Date of Birth" />
+        <input required type="date" name="dateOfBirth" placeholder="Date of Birth" />
       </li>
       <li class="single-form-item">
       <select required name="playerRole">
@@ -82,25 +82,25 @@ const AddProfile = () => {
      </select>
      </li>
       <li class="single-form-item">
-        <input required type="text" name="teamName" placeholder="Team or Academy Name" />
+        <input required type="text" name="teamName" placeholder="Your Team or Academy Name" maxlength="30" oninput="checkCharacterLimit()" />
       </li>
       <li class="single-form-item">
-        <input required type="number" name="totalMatches" placeholder="Total Matches You Have Played" />
+        <input required type="number" name="totalMatches" placeholder="Total Matches You Have Played" max="1000" oninput="checkNumberLimit()" />
       </li>
       <li class="single-form-item">
-        <input required type="number" name="totalRuns" placeholder="Total Runs" />
+        <input required type="number" name="totalRuns" placeholder="Total Runs" max="10000" oninput="checkNumberLimit()" />
       </li>
       <li class="single-form-item">
-        <input required type="number" name="totalWickets" placeholder="Total Wickets" />
+        <input required type="number" name="totalWickets" placeholder="Total Wickets" max="1000" oninput="checkNumberLimit()" />
       </li>
       <li class="single-form-item">
-        <input required type="number" name="heightRuns" placeholder="Height Runs" />
+        <input required type="number" name="heightRuns" placeholder="Height Runs" max="300" oninput="checkNumberLimit()" />
       </li>
       <li class="single-form-item">
-        <input required type="number" name="heightWickets" placeholder="Height Wickets" />
+      <input required type="number" name="heightWickets" placeholder="Height Wickets" max="9" />
       </li>
       <li class="single-form-item">
-        <textarea required type="text" name="aboutPlayer" placeholder="About You" maxlength="100" />
+        <textarea required type="text" name="aboutPlayer" placeholder="Write About You" maxlength="100" oninput="checkCharacterLimit()" />
       </li>
       <li class="single-form-item">
         <input className="btn btn--block btn--radius btn--size-xlarge btn--color-white btn--bg-maya-blue text-center contact-btn" type="submit" value="Create your profile" />
