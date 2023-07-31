@@ -6,7 +6,7 @@ const ProductVariation = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = "http://localhost:5000/categories";
+    const url = "${process.env.REACT_APP_BACKEND_URL}/categories";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCategories(data));
@@ -24,7 +24,7 @@ const ProductVariation = () => {
       variationValue,
     };
 
-    const url = `http://localhost:5000/add-variation`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/add-variation`;
     fetch(url, {
       method: "POST",
       headers: {

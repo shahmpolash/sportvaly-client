@@ -7,7 +7,7 @@ const PaymentStatus = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `http://localhost:5000/order/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/order/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
@@ -20,7 +20,7 @@ const PaymentStatus = () => {
 
     const status = {orderStatus};
 
-    const url = `http://localhost:5000/order/${order._id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/order/${order._id}`;
     fetch(url, {
       method: "PUT",
       headers: {

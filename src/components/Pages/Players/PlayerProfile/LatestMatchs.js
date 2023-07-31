@@ -12,19 +12,19 @@ const LatestMatchs = () => {
   const [matches, setMatches] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/player/${id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/player/${id}`)
       .then((res) => res.json())
       .then((info) => setPlayer(info));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/players`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/players`)
       .then((res) => res.json())
       .then((info) => setPlayers(info));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/matches`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/matches`)
       .then((res) => res.json())
       .then((info) => setMatches(info));
   }, []);
@@ -57,7 +57,7 @@ const LatestMatchs = () => {
       aganistTeam,
     };
 
-    const url = `http://localhost:5000/add-latest-match`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/add-latest-match`;
     fetch(url, {
       method: "POST",
       headers: {

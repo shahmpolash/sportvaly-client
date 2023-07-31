@@ -5,7 +5,7 @@ import './Districts.css';
 const Districts = () => {
   const [districts, setDistricts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/districts`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/districts`)
       .then((res) => res.json())
       .then((info) => setDistricts(info));
   }, []);

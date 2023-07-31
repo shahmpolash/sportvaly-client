@@ -12,7 +12,7 @@ const AddDistricts = () => {
     
         const newDistict = {districtName};
 
-        const url = `http://localhost:5000/district`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/district`;
         fetch(url, {
           method: "POST",
           headers: {

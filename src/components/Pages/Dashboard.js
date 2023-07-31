@@ -11,21 +11,21 @@ const Dashboard = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/matches`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/matches`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMatches(data));
   }, []);
 
   useEffect(() => {
-    const url = `http://localhost:5000/orders`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/orders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/players`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/players`)
       .then((res) => res.json())
       .then((info) => setPlayers(info));
   }, []);

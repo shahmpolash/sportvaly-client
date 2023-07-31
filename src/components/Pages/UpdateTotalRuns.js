@@ -7,7 +7,7 @@ const UpdateTotalRuns = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/player/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/player/${id}`)
           .then((res) => res.json())
           .then((info) => setPlayer(info));
       }, []);
@@ -21,7 +21,7 @@ const UpdateTotalRuns = () => {
             totalRuns
         };
     
-        const url = `http://localhost:5000/update-total-runs/${player._id}`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/update-total-runs/${player._id}`;
         fetch(url, {
           method: "PUT",
           headers: {

@@ -8,7 +8,7 @@ const PracticeList = () => {
     const [practices, setPractices] = useState([]);
 
     useEffect( () =>{
-        const url = `http://localhost:5000/practice?email=${user.email}`
+        const url = `${process.env.REACT_APP_BACKEND_URL}/practice?email=${user.email}`
         fetch(url)
         .then(res=>res.json())
         .then(data=> setPractices(data))
@@ -18,7 +18,7 @@ const PracticeList = () => {
     const handleDelete = id =>{
       const proceed = window.confirm('Are You Sure');
       if(proceed){
-        const url =`http://localhost:5000/practice/${id}`
+        const url =`${process.env.REACT_APP_BACKEND_URL}/practice/${id}`
         fetch(url, {
           method: 'DELETE'
         })

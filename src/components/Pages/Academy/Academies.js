@@ -6,7 +6,7 @@ const Academies = () => {
   const [academies, setAcademies] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/academies`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/academies`)
       .then((res) => res.json())
       .then((info) => setAcademies(info));
   }, []);

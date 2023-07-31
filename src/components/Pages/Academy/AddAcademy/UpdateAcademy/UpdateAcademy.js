@@ -7,7 +7,7 @@ const UpdateAcademy = () => {
     const { id } = useParams();
     const [academy, setAcademy] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/academy/${id}`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/academy/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setAcademy(data));
@@ -16,7 +16,7 @@ const UpdateAcademy = () => {
 
 
     const onSubmit = updateAcademy => {
-        const url = `http://localhost:5000/academy/${id}`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/academy/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
