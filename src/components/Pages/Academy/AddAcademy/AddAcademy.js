@@ -6,7 +6,7 @@ const AddAcademy = () => {
   const [districts, setDristricts] = useState([]);
 
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/districts`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/districts`)
       .then((res) => res.json())
       .then((info) => setDristricts(info));
   }, []);
@@ -41,7 +41,7 @@ const AddAcademy = () => {
       academyPhotoFour,
     };
 
-    const url = `${process.env.BACKEND_URL}/academy`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/academy`;
     fetch(url, {
       method: "POST",
       headers: {

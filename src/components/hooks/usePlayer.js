@@ -4,7 +4,7 @@ const usePlayer = id =>{
     const [player, setPlayer] = useState({});
 
     useEffect( () =>{
-        const url =`${process.env.BACKEND_URL}/player/${id}`;
+        const url =`${process.env.REACT_APP_BACKEND_URL}/player/${id}`;
 
         fetch(url)
         .then(res=>res.json())

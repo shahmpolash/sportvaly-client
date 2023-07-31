@@ -9,7 +9,7 @@ const AddProfile = () => {
     const [players, setPlayers] = useState([]);
   
     useEffect(() => {
-      fetch(`${process.env.BACKEND_URL}/players`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/players`)
         .then((res) => res.json())
         .then((info) => setPlayers(info));
     }, []);
@@ -34,7 +34,7 @@ const AddProfile = () => {
     
         const newPlayer = {playerName, updated, playerEmail, dateOfBirth, playerProfileImg, playerRole, teamName, totalMatches, totalRuns, totalWickets, heightRuns ,heightWickets, aboutPlayer};
 
-        const url = `${process.env.BACKEND_URL}/add-player`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/add-player`;
         fetch(url, {
           method: "POST",
           headers: {

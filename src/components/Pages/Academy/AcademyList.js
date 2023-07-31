@@ -6,13 +6,13 @@ const AcademyList = () => {
     const [academies, setAcademies] = useState([]);
     const [district, setDistrict] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.BACKEND_URL}/district/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/district/${id}`)
           .then((res) => res.json())
           .then((info) => setDistrict(info));
       }, [id]);
 
     useEffect(() => {
-      fetch(`${process.env.BACKEND_URL}/academies`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/academies`)
         .then((res) => res.json())
         .then((info) => setAcademies(info));
     }, []);

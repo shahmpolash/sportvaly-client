@@ -8,7 +8,7 @@ const MyOrders = () => {
 
 
   useEffect(() => {
-    const url = '${process.env.BACKEND_URL}/orders';
+    const url = '${process.env.REACT_APP_BACKEND_URL}/orders';
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));

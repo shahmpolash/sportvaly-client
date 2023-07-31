@@ -18,7 +18,7 @@ const AddVideo = () => {
             videoTitle,
         };
     
-        const url = `${process.env.BACKEND_URL}/add-video`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/add-video`;
         fetch(url, {
           method: "POST",
           headers: {

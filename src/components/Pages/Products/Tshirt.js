@@ -8,7 +8,7 @@ const Tshirt = () => {
 
 
   useEffect(() => {
-    const url = `${process.env.BACKEND_URL}/products`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/products`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));

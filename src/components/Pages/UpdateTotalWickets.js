@@ -7,7 +7,7 @@ const UpdateTotalWickets = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`${process.env.BACKEND_URL}/player/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/player/${id}`)
           .then((res) => res.json())
           .then((info) => setPlayer(info));
       }, [id]);
@@ -21,7 +21,7 @@ const UpdateTotalWickets = () => {
             totalWickets
         };
     
-        const url = `${process.env.BACKEND_URL}/update-total-wkts/${player._id}`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/update-total-wkts/${player._id}`;
         fetch(url, {
           method: "PUT",
           headers: {

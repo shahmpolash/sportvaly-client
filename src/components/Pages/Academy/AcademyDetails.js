@@ -7,7 +7,7 @@ const AcademyDetails = () => {
   const { id } = useParams();
   const [academy, setAcademy] = useState({});
   useEffect(() => {
-    const url = `${process.env.BACKEND_URL}/academy/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/academy/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAcademy(data));

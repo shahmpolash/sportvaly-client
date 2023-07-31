@@ -9,7 +9,7 @@ const MyRecentMatchList = () => {
 
     useEffect(() => {
         if (user) {
-            const url = `${process.env.BACKEND_URL}/mymatchs?email=${user.email}`;
+            const url = `${process.env.REACT_APP_BACKEND_URL}/mymatchs?email=${user.email}`;
             fetch(url)
                 .then(res => res.json())
                 .then(data => setMatchs(data));

@@ -6,7 +6,7 @@ const AddProducts = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const url = "${process.env.BACKEND_URL}/categories";
+    const url = "${process.env.REACT_APP_BACKEND_URL}/categories";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setCategories(data));
@@ -28,7 +28,7 @@ const AddProducts = () => {
       productImage,
     };
 
-    const url = `${process.env.BACKEND_URL}/add-product`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/add-product`;
     fetch(url, {
       method: "POST",
       headers: {

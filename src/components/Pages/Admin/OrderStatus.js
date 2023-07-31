@@ -7,7 +7,7 @@ const OrderStatus = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const url = `${process.env.BACKEND_URL}/order/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/order/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
@@ -20,7 +20,7 @@ const OrderStatus = () => {
 
     const status = {orderStatus};
 
-    const url = `${process.env.BACKEND_URL}/order/${order._id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/order/${order._id}`;
     fetch(url, {
       method: "PUT",
       headers: {

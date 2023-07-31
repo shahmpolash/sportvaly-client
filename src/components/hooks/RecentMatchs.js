@@ -19,7 +19,7 @@ const RecentMatchs = () => {
 
         const matchInfo = {email, date, team, aganist, runs, faced, wickets, overs }
 
-        fetch('${process.env.BACKEND_URL}/matchinfo', {
+        fetch('${process.env.REACT_APP_BACKEND_URL}/matchinfo', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

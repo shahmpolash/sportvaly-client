@@ -6,7 +6,7 @@ const Video = () => {
     const [video, setVideo] = useState([]);
 
     useEffect(() => {
-      const url = `${process.env.BACKEND_URL}/video/${id}`;
+      const url = `${process.env.REACT_APP_BACKEND_URL}/video/${id}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => setVideo(data));

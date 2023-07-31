@@ -11,7 +11,7 @@ const AddToCart = () => {
   
   
   useEffect(() => {
-    const url = `${process.env.BACKEND_URL}/cart-items`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/cart-items`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data.filter(item => item.customerEmail === user?.email && item.placedOrder === "No")));
@@ -37,7 +37,7 @@ const AddToCart = () => {
       }))
     };
 
-    const url = `${process.env.BACKEND_URL}/new-order`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/new-order`;
     fetch(url, {
       method: "POST",
       headers: {

@@ -9,7 +9,7 @@ const Update = () => {
     const [user] = useAuthState(auth);
 
     useEffect(() => {
-        fetch(`${process.env.BACKEND_URL}/players`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/players`)
           .then((res) => res.json())
           .then((info) => setPlayers(info));
       }, []);

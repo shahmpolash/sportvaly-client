@@ -14,7 +14,7 @@ const ProductDetails = () => {
   
 
   useEffect(() => {
-    const url = `${process.env.BACKEND_URL}/product/${id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProduct(data));

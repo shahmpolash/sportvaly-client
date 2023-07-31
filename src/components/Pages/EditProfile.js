@@ -7,7 +7,7 @@ const EditProfile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`${process.env.BACKEND_URL}/player/${id}`)
+        fetch(`${process.env.REACT_APP_BACKEND_URL}/player/${id}`)
           .then((res) => res.json())
           .then((info) => setPlayer(info));
       }, []);
@@ -24,7 +24,7 @@ const EditProfile = () => {
        
         const updateProfile = {playerName, dateOfBirth, playerProfileImg, playerRole, teamName, aboutPlayer};
     
-        const url = `${process.env.BACKEND_URL}/edit-profile/${player._id}`;
+        const url = `${process.env.REACT_APP_BACKEND_URL}/edit-profile/${player._id}`;
         fetch(url, {
           method: "PUT",
           headers: {

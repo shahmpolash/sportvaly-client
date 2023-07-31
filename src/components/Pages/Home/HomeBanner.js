@@ -9,7 +9,7 @@ const HomeBanner = () => {
     const [user] = useAuthState(auth);
     const [players, setPlayers] = useState([]);
     useEffect(() => {
-      fetch(`${process.env.BACKEND_URL}/players`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/players`)
         .then((res) => res.json())
         .then((info) => setPlayers(info));
     }, []);

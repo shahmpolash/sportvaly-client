@@ -18,13 +18,13 @@ const AddToProfile = () => {
   });
 
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/player/${id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/player/${id}`)
       .then((res) => res.json())
       .then((info) => setPlayer(info));
   }, [id]);
 
   useEffect(() => {
-    fetch(`${process.env.BACKEND_URL}/matches`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/matches`)
       .then((res) => res.json())
       .then((info) => setMatches(info));
   }, []);
@@ -38,7 +38,7 @@ const AddToProfile = () => {
 
     const updateLastMatch = { totalMatches, updated, totalRuns, totalWickets };
 
-    const url = `${process.env.BACKEND_URL}/player/${player._id}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/player/${player._id}`;
     fetch(url, {
       method: "PUT",
       headers: {

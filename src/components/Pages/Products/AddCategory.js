@@ -14,7 +14,7 @@ const AddCategory = () => {
     
     const newCategory = { categoryName };
 
-    const url = `${process.env.BACKEND_URL}/add-category`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/add-category`;
         fetch(url, {
           method: "POST",
           headers: {
